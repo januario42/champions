@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Champions API Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-layer"></div>
+    <main class="layout">
+      <header class="hero">
+        <p class="hero-tag">CHAMPIONS DATA HUB</p>
+        <h1>Visual da API + recursos novos</h1>
+        <p>
+          Consulte jogadores, filtre por criterios, veja rankings e publique
+          novos dados direto pela interface.
+        </p>
+      </header>
+
+      <section class="panel summary-panel">
+        <h2>Resumo</h2>
+        <div id="summary" class="summary-grid"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Filtros</h2>
+        <form id="filtersForm" class="form-grid">
+          <input type="text" id="name" placeholder="Nome" />
+          <input type="text" id="club" placeholder="Clube" />
+          <input type="text" id="nationality" placeholder="Nacionalidade" />
+          <input type="text" id="position" placeholder="Posicao" />
+          <select id="sort">
+            <option value="">Ordenar por</option>
+            <option value="overall">Overall</option>
+            <option value="name">Nome</option>
+          </select>
+          <select id="order">
+            <option value="desc">Desc</option>
+            <option value="asc">Asc</option>
+          </select>
+          <input type="number" id="limit" min="1" placeholder="Limite" />
+          <button type="submit">Buscar</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Top Jogadores</h2>
+          <div class="inline-controls">
+            <select id="topMetric">
+              <option value="Overall">Overall</option>
+              <option value="Pace">Pace</option>
+              <option value="Shooting">Shooting</option>
+              <option value="Passing">Passing</option>
+              <option value="Dribbling">Dribbling</option>
+              <option value="Defending">Defending</option>
+              <option value="Physical">Physical</option>
+            </select>
+            <input type="number" id="topLimit" min="1" value="5" />
+            <button id="loadTopBtn" type="button">Atualizar</button>
+          </div>
+        </div>
+        <ul id="topList" class="top-list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Novo Jogador</h2>
+        <form id="createForm" class="form-grid">
+          <input type="text" id="createName" placeholder="Nome" required />
+          <input type="text" id="createClub" placeholder="Clube" required />
+          <input
+            type="text"
+            id="createNationality"
+            placeholder="Nacionalidade"
+            required
+          />
+          <input
+            type="text"
+            id="createPosition"
+            placeholder="Posicao"
+            required
+          />
+          <input type="number" id="ovr" placeholder="Overall" min="1" max="99" required />
+          <input type="number" id="pace" placeholder="Pace" min="1" max="99" required />
+          <input
+            type="number"
+            id="shooting"
+            placeholder="Shooting"
+            min="1"
+            max="99"
+            required
+          />
+          <input type="number" id="passing" placeholder="Passing" min="1" max="99" required />
+          <input
+            type="number"
+            id="dribbling"
+            placeholder="Dribbling"
+            min="1"
+            max="99"
+            required
+          />
+          <input
+            type="number"
+            id="defending"
+            placeholder="Defending"
+            min="1"
+            max="99"
+            required
+          />
+          <input
+            type="number"
+            id="physical"
+            placeholder="Physical"
+            min="1"
+            max="99"
+            required
+          />
+          <button type="submit">Criar jogador</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Jogadores</h2>
+        <p id="status" class="status"></p>
+        <div id="playersGrid" class="players-grid"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
